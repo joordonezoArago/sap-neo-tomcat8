@@ -9,7 +9,7 @@ init() {
 	${NEO} install-local -l ${TOMCAT_HOME}
 	${KEYTOOL} \
 		-genkey \
-		-dname "CN=sap-neo-tomcat8" \
+		-dname "CN=tomcat8" \
 		-keyalg "RSA" \
 		-alias tomcat \
 		-storetype PKCS12 \
