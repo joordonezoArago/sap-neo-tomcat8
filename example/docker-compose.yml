@@ -7,5 +7,5 @@ services:
      - "8443:8443"
     volumes:
      - ./target:/tomcat/webapps
-     - .cfg/conf:/tomcat
-     - .cfg/config_master:/tomcat
+     - ./cfg/conf:/tomcat
+     - ./cfg/config_master:/tomcat
