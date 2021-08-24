@@ -1,17 +1,11 @@
 version: '3.5'
 services:
   tomcat8:
-    container_name: tomcat8
-    build: 
-      context: ./../
-      dockerfile: Dockerfile
-      target: debianSap
-    #command:  ./tomcat/bin/startup.sh
+    image: joordonezoarago/sap-neo-tomcat8:dev
     ports:
      - "8080:8080"
      - "8443:8443"
     volumes:
-     - ./target:/webapps
-     #- .tomcat/config_master/connection_data:/tomcat/config_master/connection_data
-     #- .tomcat/config_master/com.sap.js.logging:/tomcat/config_master/com.sap.js.logging2
-     #- .tomcat/config_master/com.sap.js.logging:/tomcat/config_master/com.sap.js.logging
+     - ./target:/tomcat/webapps
+     - .cfg/conf:/tomcat
+     - .cfg/config_master:/tomcat

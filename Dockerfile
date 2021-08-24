@@ -12,9 +12,9 @@ RUN curl \
 	https://tools.hana.ondemand.com/additional/sapjvm-8.1.078-linux-x64.zip \
 	-o sapjvm_8.zip \
 	&& \
-	unzip sapjvm_8.zip 
-	#&& \
-	#rm sapjvm_8.zip
+	unzip sapjvm_8.zip \
+	&& \
+	rm sapjvm_8.zip
 
 RUN curl \
 	--cookie "eula_3_1_agreed=tools.hana.ondemand.com/developer-license-3_1.txt" \
@@ -23,9 +23,9 @@ RUN curl \
 	&& \
 	mkdir neo-java-web-sdk \
 	&& \
-	unzip neo-java-web-sdk.zip -d neo-java-web-sdk 
-	#&& \
-	#rm neo-java-web-sdk.zip
+	unzip neo-java-web-sdk.zip -d neo-java-web-sdk \
+	&& \
+	rm neo-java-web-sdk.zip
 
 
 COPY src/scripts /scripts/
