@@ -2,10 +2,11 @@ version: '3.5'
 services:
   tomcat8:
     image: joordonezoarago/sap-neo-tomcat8:dev
+    restart: unless-stopped
     ports:
      - "8080:8080"
      - "8443:8443"
     volumes:
      - ./target:/tomcat/webapps
-     - ./cfg/conf:/tomcat
-     - ./cfg/config_master:/tomcat
+     - ./cfg/conf:/tomcat/config
+     - ./cfg/config_master:/tomcat/config_master
