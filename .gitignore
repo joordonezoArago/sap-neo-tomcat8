@@ -1,3 +1,4 @@
-/tomcat
 /example/cfg/conf
 /example/cfg/config_master
+/example/cfg/log
+/example/target

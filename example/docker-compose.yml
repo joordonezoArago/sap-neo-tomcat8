@@ -1,12 +1,37 @@
 version: '3.5'
 services:
+  #hana:
+    #container_name: HANA2
+    #build:
+      #context: ../
+     # dockerfile: Dockerfile
+      #target: hana
+    #ports:
+    #  - "39013:39013"
+     # - "39017:39017"
+     # - "39041-39045:39041-39045"
+      #- "1128-1129:1128-1129"
+     # - "59013-59014:59013-59014"
+    #volumes:
+    #  - /data/HANA:/hana/mounts
   tomcat8:
-    image: joordonezoarago/sap-neo-tomcat8:dev
+    container_name: sap-neo
+    build: 
+      context: ../
+      dockerfile: Dockerfile
+      target: debian
+      
+    #image: joordonezoarago/sap-neo-tomcat8:dev_v1
     restart: unless-stopped
     ports:
      - "8080:8080"
      - "8443:8443"
+     - "8009:8009"
+     - "8003:8003"
     volumes:
      - ./target:/tomcat/webapps
      - ./cfg/conf:/tomcat/config
      - ./cfg/config_master:/tomcat/config_master
+     - ./cfg/log:/neo-java-web-sdk/tools/log
+    #command: sh /scripts/run.sh shutdown
+  
